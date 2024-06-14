@@ -57,7 +57,7 @@ def about():
 
 @app.route('/about1')
 def about1():
-    return render_template('about.html')
+    return render_template('about1.html')
 
 
 # Define the post creation functionality
@@ -97,9 +97,9 @@ def healthz():
 
 
 def count_db_conn():
-    global num_count
-    num_count += 1
-    return num_count
+    # global num_count
+    # num_count += 1
+    return 0 # num_count
 
 
 def count_posts():
@@ -130,5 +130,5 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    logging.basicConfig(filename='py_app.log', level=logging.DEBUG)
     app.run(host='0.0.0.0', port=3111)
