@@ -27,8 +27,12 @@ __pycache__/
 *.lock
 *.json
 *.tar
+*.log
+*.db
 
 # ==================== Ignore secret files
 *.pem
 *.lic
 *.env
+
+
