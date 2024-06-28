@@ -4,3 +4,31 @@
 .myvenv/
 __pycache__/
 .vagrant/
+
+
+# ==================== Ignore PyCharm IDE files
+*.iml
+*.xml
+/.idea
+
+
+# ==================== Ignore large files
+*.zip
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.xlsx
+*.txt
+*.sql
+*.tgz
+*.gz
+*.lock
+*.json
+*.tar
+
+# ==================== Ignore secret files
+*.pem
+*.lic
+*.env
