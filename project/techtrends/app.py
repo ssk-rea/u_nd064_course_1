@@ -19,10 +19,16 @@ def get_db_connection():
 # Function to get a post using its ID
 def get_post(post_id):
     connection = get_db_connection()
-    obj_post = connection.execute('SELECT * FROM posts WHERE id = ?',
-                              (post_id,)).fetchone()
+    obj_post = connection.execute('SELECT * FROM posts WHERE id = ?',(post_id,)).fetchone()
     connection.close()
     return obj_post
+
+
+def get_all_posts():
+    connection = get_db_connection()
+    list_posts = connection.execute('SELECT * FROM posts').fetchall()
+    connection.close()
+    return list_posts
 
 
 # Define the Flask application
@@ -33,11 +39,10 @@ app.config['SECRET_KEY'] = 'your secret key'
 # Define the main route of the web application
 @app.route('/')
 def index():
-    connection = get_db_connection()
-    posts = connection.execute('SELECT * FROM posts').fetchall()
+    list_posts = get_all_posts()
     app.logger.debug(f"All the posts retrieved.")
-    connection.close()
-    return render_template('index.html', posts=posts)
+
+    return render_template('index.html', posts=list_posts)
 
 
 @app.route('/init')
@@ -119,10 +124,8 @@ def count_db_conn():
 
 
 def count_posts():
-    connection = get_db_connection()
-    posts = connection.execute('SELECT * FROM posts').fetchall()
-    connection.close()
-    return len(posts)
+    list_posts = get_all_posts()
+    return len(list_posts)
 
 
 @app.route('/metrics', methods=['GET'])
@@ -153,6 +156,6 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    get_existing_post(1)
+    # get_existing_post(1)
     logging.basicConfig(filename='py_app.log', level=logging.DEBUG)
     app.run(host='0.0.0.0', port=3111)
