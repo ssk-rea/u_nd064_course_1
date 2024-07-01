@@ -11,4 +11,41 @@ docker rm techtrends-app
 docker logs techtrends-app
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+ docker logs techtrends-app
+
+
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+[2024-07-01 00:49:32,980] WARNING in _internal:  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[2024-07-01 00:49:32,980] INFO in _internal:  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+[2024-07-01 00:49:32,983] INFO in _internal:  * Restarting with stat
+[2024-07-01 00:49:33,252] WARNING in _internal:  * Debugger is active!
+[2024-07-01 00:49:33,252] INFO in _internal:  * Debugger PIN: 110-714-465
+[2024-07-01 00:49:35,767] DEBUG in app: An existing article is accessed: 1 2020 CNCF Annual Report
+[2024-07-01 00:49:35,776] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:49:35] "GET /1 HTTP/1.1" 200 -
+[2024-07-01 00:49:35,799] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:49:35] "GET /static/css/main.css HTTP/1.1" 304 -
+[2024-07-01 00:49:40,529] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:49:40] "GET /about HTTP/1.1" 200 -
+[2024-07-01 00:49:40,595] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:49:40] "GET /static/css/main.css HTTP/1.1" 304 -
+[2024-07-01 00:50:08,618] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:50:08] "GET /create HTTP/1.1" 200 -
+[2024-07-01 00:50:08,753] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:50:08] "GET /static/css/main.css HTTP/1.1" 304 -
+[2024-07-01 00:50:53,484] DEBUG in app: New article created: MLOps takes lead dev
+[2024-07-01 00:50:53,485] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:50:53] "POST /create HTTP/1.1" 302 -
+[2024-07-01 00:50:53,599] DEBUG in app: All the posts retrieved.
+[2024-07-01 00:50:53,623] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:50:53] "GET / HTTP/1.1" 200 -
+[2024-07-01 00:50:53,797] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:50:53] "GET /static/css/main.css HTTP/1.1" 304 -
+[2024-07-01 00:51:13,670] DEBUG in app: num_conn: 1
+[2024-07-01 00:51:13,670] DEBUG in app: num_posts: 8
+[2024-07-01 00:51:13,671] DEBUG in app: {'db_connection_count': 1, 'post_count': 8}
+[2024-07-01 00:51:13,671] INFO in app: Metrics request successful.
+[2024-07-01 00:51:13,671] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:51:13] "GET /metrics HTTP/1.1" 200 -
+[2024-07-01 00:51:19,999] INFO in app: Healthz request successful.
+[2024-07-01 00:51:19,999] DEBUG in app: DEBUG message
+[2024-07-01 00:51:20,002] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:51:20] "GET /healthz HTTP/1.1" 200 -
+[2024-07-01 00:51:23,348] DEBUG in app: All the posts retrieved.
+[2024-07-01 00:51:23,352] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:51:23] "GET / HTTP/1.1" 200 -
+[2024-07-01 00:51:23,537] INFO in _internal: 172.17.0.1 - - [01/Jul/2024 00:51:23] "GET /static/css/main.css HTTP/1.1" 304 -
+

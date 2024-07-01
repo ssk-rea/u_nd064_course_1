@@ -4,6 +4,23 @@ from flask import Flask, jsonify, json, render_template, request, url_for, redir
 from werkzeug.exceptions import abort
 import logging
 import init_db
+from logging.config import dictConfig
+
+dictConfig({
+    'version': 1,
+    'formatters': {'default': {
+        'format': '[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
+    }},
+    'handlers': {'wsgi': {
+        'class': 'logging.StreamHandler',
+        'stream': 'ext://flask.logging.wsgi_errors_stream',
+        'formatter': 'default'
+    }},
+    'root': {
+        'level': 'DEBUG',
+        'handlers': ['wsgi']
+    }
+})
 
 num_count = 0
 
@@ -40,7 +57,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 @app.route('/')
 def index():
     list_posts = get_all_posts()
-    # app.logger.debug(f"All the posts retrieved.")
+    app.logger.debug(f"All the posts retrieved.")
 
     return render_template('index.html', posts=list_posts)
 
@@ -158,5 +175,5 @@ def metrics():
 if __name__ == "__main__":
     # get_existing_post(1)
     logging.basicConfig(filename='py_app.log', level=logging.DEBUG)
-    app.debug = True
-    app.run(host='0.0.0.0', port=3111)
+
+    app.run(host='0.0.0.0', port=3111, debug=True)
