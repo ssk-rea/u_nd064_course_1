@@ -40,7 +40,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 @app.route('/')
 def index():
     list_posts = get_all_posts()
-    app.logger.debug(f"All the posts retrieved.")
+    # app.logger.debug(f"All the posts retrieved.")
 
     return render_template('index.html', posts=list_posts)
 
@@ -158,4 +158,5 @@ def metrics():
 if __name__ == "__main__":
     # get_existing_post(1)
     logging.basicConfig(filename='py_app.log', level=logging.DEBUG)
+    app.debug = True
     app.run(host='0.0.0.0', port=3111)
