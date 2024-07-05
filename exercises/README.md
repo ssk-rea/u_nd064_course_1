@@ -9,7 +9,7 @@ The current folder conatins the following starter code for the classroom exercis
 │   └── main.go
 ├── manifests
 │   ├── configmap.yaml
-│   ├── deployment.yaml
+│   ├── deploy.yaml
 │   ├── namespace.yaml
 │   └── service.yaml
 └── python-helloworld  # Docker walkthrough code  
